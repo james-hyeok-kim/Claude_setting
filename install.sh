@@ -22,5 +22,6 @@ echo "=== Installing dotfiles ==="
 
 # Claude Code
 link "$DOTFILES_DIR/claude/settings.json" "$HOME/.claude/settings.json"
+link "$DOTFILES_DIR/claude/skills" "$HOME/.claude/skills"
 
 echo "=== Done ==="
