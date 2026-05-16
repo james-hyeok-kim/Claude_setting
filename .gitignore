@@ -4,3 +4,10 @@ claude/settings.local.json
 # OS
 .DS_Store
 Thumbs.db
+
+# Per-run snapshots (kept locally, not tracked)
+claude/snapshot_*/
+
+# Vim/editor swap files
+*.swp
+*.swo
