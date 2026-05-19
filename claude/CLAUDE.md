@@ -1,5 +1,14 @@
 # Global Rules
 
+## Time zone
+
+**모든 시각 표기는 KST(Asia/Seoul, UTC+9)로 한다.**
+
+- 로그 timestamp, scheduling 시각, 실험 결과의 시간, 사용자에게 보고하는 모든 시각은 KST 기준
+- 표기 형식 예: `2026-05-18 14:30 KST` — timezone suffix를 명시
+- 외부 시스템이 UTC로 기록하더라도, 사용자에게 보여줄 때는 KST로 변환 후 표기
+- `/schedule`, cron, wakeup 등 시간 입력은 별도 명시 없으면 KST로 해석
+
 ## Git operations
 
 **git push, git commit, branch deletion, force-push, reset --hard 등 git의 모든 mutating operation은 반드시 사용자의 명시적 확인을 받은 후에만 수행한다.**
@@ -13,6 +22,15 @@
 ## Behavior on uncertain mutations
 
 Git 외에도 되돌리기 어려운 변경(파일 삭제, 외부 시스템 호출, 메시지 전송 등)은 동일 원칙: **명시적 사용자 요청이 있을 때만 수행**, 자동 판단으로 수행 금지.
+
+## File deletion
+
+**파일은 지우기 전에 꼭 사용자에게 문의한다.**
+
+- `rm`, `rm -rf`, `Write`로 기존 파일 덮어쓰기, 디렉토리 삭제 등 모든 파일 삭제/소실 작업은 사용자 승인 필수
+- 임시 파일이나 본인이 방금 만든 파일이라도 삭제 전 한 번 확인
+- 작업 흐름상 "정리"가 필요해 보여도 자동 삭제 금지 — 어떤 파일을 왜 지울지 먼저 보고
+- 사용자가 명시적으로 "지워줘", "정리해줘"라고 한 경우만 수행
 
 ## Push notifications
 
