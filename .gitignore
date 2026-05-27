@@ -11,3 +11,6 @@ claude/snapshot_*/
 # Vim/editor swap files
 *.swp
 *.swo
+
+# Claude Code
+.claude/worktrees/
